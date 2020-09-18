@@ -41,6 +41,9 @@ public class Card implements Comparable<Card> {
 	public Rank getRank() {
 		return rank;
 	}
+	public int getRankValue() {
+		return rank.getValue();
+	}
 	
 	@Override
 	public int compareTo(Card otherCard) {
