@@ -1,6 +1,6 @@
 package com.skilldistillery.common.cards;
 
-public class Card {
+public class Card implements Comparable<Card> {
 	private Suit suit;
 	private Rank rank;
 	public Card(Suit suit, Rank rank) {
@@ -40,6 +40,25 @@ public class Card {
 	}
 	public Rank getRank() {
 		return rank;
+	}
+	
+	@Override
+	public int compareTo(Card otherCard) {
+		if (this.rank.ordinal() > otherCard.rank.ordinal()) {
+			return 1;
+		} else if (this.rank.ordinal() < otherCard.rank.ordinal()) {
+			return -1;
+		} else if (this.rank.ordinal() == otherCard.rank.ordinal()) {
+			if (this.suit.ordinal() > otherCard.suit.ordinal()) {
+				return 1;
+			}
+			if (this.suit.ordinal() < otherCard.suit.ordinal()) {
+				return -1;
+			} else if (this.suit.ordinal() == otherCard.suit.ordinal()) {
+				return 0;
+			}
+		}
+		return 0;
 	}
 
 	
