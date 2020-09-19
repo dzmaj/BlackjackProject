@@ -19,7 +19,7 @@ public abstract class CardGroup {
 		addCards(cardsToAdd);
 	}
 
-	public int checkDeckSize() {
+	public int getNumCards() {
 		return cards.size();
 	}
 	public Card dealCard(int position) {
@@ -36,6 +36,12 @@ public abstract class CardGroup {
 	}
 	public void addCards(List<Card> cardsToAdd) {
 		cards.addAll(cardsToAdd);
+	}
+	public void addCards(CardGroup groupToAdd) {
+		cards.addAll(groupToAdd.getCards());
+	}
+	public void clear() {
+		cards.clear();
 	}
 	public void sortBySuit() {
 		cards.sort(new CardSuitFirstComparator());
@@ -71,6 +77,14 @@ public abstract class CardGroup {
 	}
 	public void setCards(List<Card> cards) {
 		this.cards = cards;
+	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("");
+		builder.append(cards);
+		builder.append("");
+		return builder.toString();
 	}
 	
 	

@@ -4,18 +4,26 @@ public abstract class Player {
 	private int id;
 	private String name;
 	protected Hand hand;
-	
+	protected boolean human = false;
 	public Player() {
 	}
+	
+	public Player(boolean isHuman) {
+		human = isHuman;
+	}
 
-	public Player(int id) {
-		this();
+	public Player(boolean isHuman, int id) {
+		this(isHuman);
 		this.id = id;
 	}
-	public Player(int id, String name) {
-		this();
+	public Player(boolean isHuman, int id, String name) {
+		this(isHuman);
 		this.id = id;
 		this.name = name;
+	}
+	
+	public boolean isHuman() {
+		return human;
 	}
 
 	public int getId() {

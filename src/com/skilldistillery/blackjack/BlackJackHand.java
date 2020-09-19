@@ -1,9 +1,9 @@
 package com.skilldistillery.blackjack;
 
-import com.skilldistillery.common.cards.Card;
-import com.skilldistillery.common.cards.Hand;
+import com.skilldistillery.common.cards.*;
 
-public class BlackJackHand extends Hand {
+
+public class BlackjackHand extends Hand {
 	@Override
 	public int getHandValue() {
 		int value = 0;
@@ -14,6 +14,8 @@ public class BlackJackHand extends Hand {
 		
 		return value;
 	}
+
+	
 	
 	public boolean isBlackjack() {
 		if (getHandValue() == 21) {
