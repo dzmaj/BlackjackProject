@@ -8,8 +8,8 @@ public class BlackjackPlayer extends Player {
 	
 	
 
-	public BlackjackPlayer(boolean isHuman, int id, String name, boolean isDealer) {
-		super(isHuman, id, name);
+	public BlackjackPlayer(boolean isHuman, String name, boolean isDealer) {
+		super(isHuman, name);
 		dealer = isDealer;
 		hand = new BlackjackHand();
 		

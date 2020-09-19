@@ -10,7 +10,7 @@ public class BlackjackDealer extends Dealer {
 		super();
 		deck = new Deck();
 		discardPile = new Pile();
-		dealerAsPlayer = new BlackjackPlayer(false, 0, "Dealer", true);
+		dealerAsPlayer = new BlackjackPlayer(false, "Dealer", true);
 		shuffleDeck();
 	}
 

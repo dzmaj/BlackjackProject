@@ -14,7 +14,7 @@ public class BlackjackApp {
 		Scanner sc = new Scanner(System.in);
 		BlackjackGame game = new BlackjackGame(sc);
 		System.out.println("Welcome to Blackjack!");
-		game.setupBasicGame();
+		game.setupBigGame();
 		game.beginGame();
 		
 	}

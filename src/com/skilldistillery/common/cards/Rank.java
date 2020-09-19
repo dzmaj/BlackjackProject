@@ -1,7 +1,6 @@
 package com.skilldistillery.common.cards;
 
 public enum Rank {
-//	ONE(1, "One"),
 	TWO(2, "Two"),
 	THREE(3, "Three"),
 	FOUR(4, "Four"),
