@@ -9,6 +9,8 @@ public class BlackjackHand extends Hand {
 		int value = getSoftValue();
 		return value;
 	}
+	
+	// score if aces are 11
 	public int getBaseHandValue() {
 		int value = 0;
 		for (Card card : cards) {
@@ -37,6 +39,8 @@ public class BlackjackHand extends Hand {
 		return true;
 	}
 	
+	// get true score
+	// TODO: clean up redundant logic
 	public int getSoftValue() {
 		int hardValue = getBaseHandValue();
 		int value = hardValue;

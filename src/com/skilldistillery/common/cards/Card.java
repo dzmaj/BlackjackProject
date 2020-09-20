@@ -3,10 +3,33 @@ package com.skilldistillery.common.cards;
 public class Card implements Comparable<Card> {
 	private Suit suit;
 	private Rank rank;
+	private int uCard;
 	public Card(Suit suit, Rank rank) {
 		super();
 		this.suit = suit;
 		this.rank = rank;
+		this.uCard = setUCard();
+	}
+	private int setUCard() {
+		Integer codePoint = 0x1f0a0;
+		if (suit == Suit.SPADES) {
+		} else if (suit == Suit.HEARTS) {
+			codePoint += 0x10;
+		} else if (suit == Suit.DIAMONDS) {
+			codePoint += 0x20;
+		} else if (suit == Suit.CLUBS) {
+			codePoint += 0x30;
+		}
+		if (rank == Rank.ACE) {
+			codePoint += 1;
+		} else {
+			codePoint += rank.ordinal() + 2;
+		}
+		
+		return codePoint;
+	}
+	public String getCardSymString() {
+		return String.valueOf(Character.toChars(uCard));
 	}
 	@Override
 	public int hashCode() {
@@ -33,7 +56,7 @@ public class Card implements Comparable<Card> {
 	}
 	@Override
 	public String toString() {
-		return rank + " of " + suit;
+		return getCardSymString() + " " + rank + " of " + suit + suit.getSymbol();
 	}
 	public Suit getSuit() {
 		return suit;
@@ -63,6 +86,10 @@ public class Card implements Comparable<Card> {
 		}
 		return 0;
 	}
+	public int getUCard() {
+		return uCard;
+	}
+
 
 	
 	

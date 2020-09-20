@@ -5,6 +5,7 @@ import com.skilldistillery.common.cards.*;
 public class BlackjackPlayer extends Player {
 	private BlackjackHand hand;
 	private boolean dealer;
+	private boolean hasDoubled;
 
 	public BlackjackPlayer(boolean isHuman, String name, boolean isDealer) {
 		super(isHuman, name);
@@ -20,13 +21,13 @@ public class BlackjackPlayer extends Player {
 	public String getScoreString() {
 		int score = scoreHand();
 		String str = "";
-		if (score == -1) {
+		if (score <= 0) {
 			return "Bust!";
 		}
 		if (hand.isSoft()) {
 			str += score;
 		} else {
-			if (score == -1) {
+			if (score <= 0) {
 				str = "Bust!";
 			} else if (score == 21) {
 				str = "Blackjack!";
@@ -40,6 +41,10 @@ public class BlackjackPlayer extends Player {
 	public int scoreHand() {
 		int value = hand.getHandValue();
 		if (value > 21) {
+			// Players who busted should still lose to dealer who busts afterwards
+			if (this.dealer) {
+				return 0;
+			}
 			return -1;
 		} else {
 			return value;
@@ -47,7 +52,6 @@ public class BlackjackPlayer extends Player {
 	}
 
 	public boolean canHit() {
-
 		int value = hand.getHandValue();
 		if (value > 21) {
 			return false;
@@ -64,6 +68,13 @@ public class BlackjackPlayer extends Player {
 
 	public void setDealer(boolean dealer) {
 		this.dealer = dealer;
+	}
+
+	public boolean hasDoubled() {
+		return hasDoubled;
+	}
+	public void setHasDoubled(boolean bool) {
+		hasDoubled = bool;
 	}
 
 }
