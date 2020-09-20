@@ -71,6 +71,7 @@ public class BlackjackGame extends Game {
 			case "n":
 				keepAdding = false;
 				// done
+				break;
 			default:
 				// invalid
 				System.out.println("Invalid input");
@@ -217,7 +218,12 @@ public class BlackjackGame extends Game {
 			int score = p.scoreHand();
 			if (score == 21) {
 				System.out.println(p.getName() + ": Blackjack!");
-			} else if (score >= 17) {
+			}
+			else if (score >= 17) {
+				if (p.getHand().isSoft() && score == 17) {
+					System.out.println(p.getName() + ": hitting (soft)");
+					bjDealer.hitPlayer(p);
+				}
 				System.out.println(p.getName() + ": Stay");
 				stay = true;
 			} else {
