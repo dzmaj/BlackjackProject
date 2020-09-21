@@ -184,6 +184,7 @@ public class BlackjackGame extends Game {
 				System.out.println(player.getName() + ", how much would you like to bet?");
 				roundBets.put(player, sc.nextInt());
 				sc.nextLine();
+				((BlackjackPlayer)player).setHasDoubled(false);
 			}
 		}
 	}
@@ -255,6 +256,8 @@ public class BlackjackGame extends Game {
 						System.out.println(p.getName() + " doubled down! (new bet is: " + newBet + ")");
 						roundBets.put(p, newBet);
 						p.setHasDoubled(true);
+						bjDealer.hitPlayer(p);
+						keepGoing = false;
 					} else {
 						System.out.println("Cannot double again!");
 					}
