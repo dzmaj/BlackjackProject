@@ -2,7 +2,6 @@ package com.skilldistillery.blackjack;
 
 import com.skilldistillery.common.cards.*;
 
-
 public class BlackjackHand extends Hand {
 	@Override
 	public int getHandValue() {
